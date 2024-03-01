@@ -57,8 +57,8 @@ async function viewAllData() {
     const pokemonResponse = await fetch(pokemonData);
     const pokemonParsed : Pokemon[] = await pokemonResponse.json();
     
-    for (let index = 0; index < pokemonData.length; index++) {  
-        console.log(`- ${pokemonData[index].name} (${pokemonData[index].id})`);
+    for (let index = 0; index < pokemonParsed.length; index++) {  
+        console.log(`- ${pokemonParsed[index].name} (${pokemonParsed[index].id})`);
     }
     } catch (error: any) {
         console.log(error);
@@ -69,8 +69,10 @@ async function viewAllData() {
 // Functie om te filteren op id
 async function FilterOnID() {
     try {
+        const pokemonResponse = await fetch(pokemonData);
+    const pokemonParsed : Pokemon[] = await pokemonResponse.json();
         let filterid: number= parseInt(readline.question("Please enter the ID you want to filter by:"));
-    const filteredPokemon: Pokemon | undefined = pokemonData.find(pokemon => pokemon.id === filterid);
+    const filteredPokemon: Pokemon | undefined = pokemonParsed.find(pokemon => pokemon.id === filterid);
     if (filteredPokemon) {
         console.log(`- ${filteredPokemon.name} (${filteredPokemon.id})`);
         console.log(`  - Description: ${filteredPokemon.description}`);
