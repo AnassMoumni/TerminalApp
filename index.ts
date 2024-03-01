@@ -1,13 +1,10 @@
 import * as readline from 'readline-sync';
-const fs = require('fs');
-
-const pokemon = require('./pokemon.json');
-const abilities = require('./abilities.json');
 
 // Lees de inhoud van Pokemon.json en Abilities.json
-const pokemonData: Pokemon[] = JSON.parse(fs.readFileSync('pokemon.json', 'utf8'));
-const abilitiesData: Ability[] = JSON.parse(fs.readFileSync('abilities.json', 'utf8'));
+const pokemonData = "https://github.com/AnassMoumni/TerminalApp/blob/main/pokemon.json";
+const abilitiesData = "https://github.com/AnassMoumni/TerminalApp/blob/main/abilities.json";
 
+//Interfaces
 interface Pokemon {
     id: number;
     name: string;
@@ -28,6 +25,7 @@ interface Ability {
     isHidden: boolean;
 }
 
+//Console App
 console.log('Welcome to the JSON data viewer!');
 let indexChoice : number 
 
@@ -52,16 +50,26 @@ switch (indexChoice) {
 
 
 // Functie om alle Pokémon-data weer te geven
-function viewAllData() {
-    console.log("You chose to view all data.");
+async function viewAllData() {
+    try {
+        console.log("You chose to view all data.");
+
+    const pokemonResponse = await fetch(pokemonData);
+    const pokemonParsed : Pokemon[] = await pokemonResponse.json();
+    
     for (let index = 0; index < pokemonData.length; index++) {  
         console.log(`- ${pokemonData[index].name} (${pokemonData[index].id})`);
     }
+    } catch (error: any) {
+        console.log(error);
+    }
+    
 }
 
 // Functie om te filteren op id
-function FilterOnID() {
-    let filterid: number= parseInt(readline.question("Please enter the ID you want to filter by:"));
+async function FilterOnID() {
+    try {
+        let filterid: number= parseInt(readline.question("Please enter the ID you want to filter by:"));
     const filteredPokemon: Pokemon | undefined = pokemonData.find(pokemon => pokemon.id === filterid);
     if (filteredPokemon) {
         console.log(`- ${filteredPokemon.name} (${filteredPokemon.id})`);
@@ -81,6 +89,10 @@ function FilterOnID() {
     else {
         console.log(`No Pokémon found with ID: ${filterid}`);
     }
+    } catch (error: any) {
+        console.log(error);
+    }
+    
 }
 
 console.log();
