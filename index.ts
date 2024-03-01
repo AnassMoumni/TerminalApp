@@ -29,16 +29,16 @@ do {
             console.log("Invalid choice.");
             break;
     }
-} while (indexChoice!== 2 );
+} while (indexChoice>3 );
 
 
 // Functie om alle Pokémon-data weer te geven
 async function viewAllData() {
     try {
-        console.log("You chose to view all data.");
 
         const pokemonResponse = await fetch(pokemonData);
         const pokemonParsed : Pokemon[] = await pokemonResponse.json();
+        console.log("You chose to view all Pokémon.");
 
         for (const pokemonData of pokemonParsed) {
             console.log(`- ${pokemonData.name} (${pokemonData.id})`);
@@ -52,9 +52,10 @@ async function viewAllData() {
 
 // Functie om te filteren op id
 async function FilterOnID() {
-    console.log("You chose to filter by id.");
 
     try {
+        console.log("You chose to filter by id.");
+
         const pokemonResponse = await fetch(pokemonData);
         const pokemonParsed : Pokemon[] = await pokemonResponse.json();
         let filterid: number= Number(readline.question("Please enter the ID you want to filter by:"));
@@ -69,7 +70,7 @@ async function FilterOnID() {
         console.log(`  - Image: ${filteredPokemon.imageUrl}`);
         console.log(`  - Types: ${filteredPokemon.types.join(', ')}`);
         filteredPokemon.abilities.forEach(ability => {
-            console.log(`  - Name: ${ability.name}`);
+            console.log(`  - Ability: ${ability.name}`);
             console.log(`      - Description: ${ability.description}`);
             console.log(`      - Ability URL: ${ability.abilityUrl}`);
             console.log(`      - Hidden: ${ability.isHidden}`);
