@@ -72,7 +72,7 @@ async function FilterOnID() {
         filteredPokemon.abilities.forEach(ability => {
             console.log(`  - Ability: ${ability.name}`);
             console.log(`      - Description: ${ability.description}`);
-            console.log(`      - Ability URL: ${ability.abilityUrl}`);
+            console.log(`      - Ability URL: ${ability.imageUrl}`);
             console.log(`      - Hidden: ${ability.isHidden}`);
         });
     } 

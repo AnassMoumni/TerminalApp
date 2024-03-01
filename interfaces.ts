@@ -15,6 +15,6 @@ export interface Ability {
     id: number;
     name: string;
     description: string;
-    abilityUrl: string;
+    imageUrl: string;
     isHidden: boolean;
 }
