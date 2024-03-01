@@ -1,29 +1,12 @@
+//invoer voor eindgebruiker
 import * as readline from 'readline-sync';
 
+//Interfaces gebruiken
+import { Pokemon, Ability } from './interfaces';
+
 // Lees de inhoud van Pokemon.json en Abilities.json
-const pokemonData = "https://github.com/AnassMoumni/TerminalApp/blob/main/pokemon.json";
-const abilitiesData = "https://github.com/AnassMoumni/TerminalApp/blob/main/abilities.json";
-
-//Interfaces
-interface Pokemon {
-    id: number;
-    name: string;
-    description: string;
-    height: number;
-    isCaught: boolean;
-    catchDate: string | null;
-    imageUrl: string;
-    types: string[];
-    abilities: Ability[];
-}
-
-interface Ability {
-    id: number;
-    name: string;
-    description: string;
-    abilityUrl: string;
-    isHidden: boolean;
-}
+const pokemonData = "https://raw.githubusercontent.com/AnassMoumni/TerminalApp/main/pokemon.json";
+const abilitiesData = "https://raw.githubusercontent.com/AnassMoumni/TerminalApp/main/abilities.json";
 
 //Console App
 console.log('Welcome to the JSON data viewer!');
@@ -31,20 +14,20 @@ let indexChoice : number
 
 do {
     const choices : string[] = ["View all data", "Filter by ID", "Exit"];
-indexChoice = readline.keyInSelect(choices, "Choose an option:");
-switch (indexChoice) {
-    case 0:
-        viewAllData();
-        break;
-    case 1:
-        FilterOnID();
-        break;
-    case 2:
-        console.log("Exiting the application...");
-        break;
-    default:
-        console.log("Invalid choice.");
-        break;
+    indexChoice = readline.keyInSelect(choices, "Choose an option:");
+    switch (indexChoice) {
+        case 0:
+            viewAllData();
+            break;
+        case 1:
+            FilterOnID();
+            break;
+        case 2:
+            console.log("Exiting the application...");
+            break;
+        default:
+            console.log("Invalid choice.");
+            break;
     }
 } while (indexChoice!== 2 );
 
@@ -54,13 +37,14 @@ async function viewAllData() {
     try {
         console.log("You chose to view all data.");
 
-    const pokemonResponse = await fetch(pokemonData);
-    const pokemonParsed : Pokemon[] = await pokemonResponse.json();
-    
-    for (let index = 0; index < pokemonParsed.length; index++) {  
-        console.log(`- ${pokemonParsed[index].name} (${pokemonParsed[index].id})`);
-    }
-    } catch (error: any) {
+        const pokemonResponse = await fetch(pokemonData);
+        const pokemonParsed : Pokemon[] = await pokemonResponse.json();
+
+        for (const pokemonData of pokemonParsed) {
+            console.log(`- ${pokemonData.name} (${pokemonData.id})`);
+        }
+    } 
+    catch (error: any) {
         console.log(error);
     }
     
@@ -68,11 +52,14 @@ async function viewAllData() {
 
 // Functie om te filteren op id
 async function FilterOnID() {
+    console.log("You chose to filter by id.");
+
     try {
         const pokemonResponse = await fetch(pokemonData);
-    const pokemonParsed : Pokemon[] = await pokemonResponse.json();
-        let filterid: number= parseInt(readline.question("Please enter the ID you want to filter by:"));
-    const filteredPokemon: Pokemon | undefined = pokemonParsed.find(pokemon => pokemon.id === filterid);
+        const pokemonParsed : Pokemon[] = await pokemonResponse.json();
+        let filterid: number= Number(readline.question("Please enter the ID you want to filter by:"));
+        const filteredPokemon: Pokemon | undefined = pokemonParsed.find(pokemon => pokemon.id === filterid);
+
     if (filteredPokemon) {
         console.log(`- ${filteredPokemon.name} (${filteredPokemon.id})`);
         console.log(`  - Description: ${filteredPokemon.description}`);
@@ -82,7 +69,7 @@ async function FilterOnID() {
         console.log(`  - Image: ${filteredPokemon.imageUrl}`);
         console.log(`  - Types: ${filteredPokemon.types.join(', ')}`);
         filteredPokemon.abilities.forEach(ability => {
-            console.log(`      - Name: ${ability.name}`);
+            console.log(`  - Name: ${ability.name}`);
             console.log(`      - Description: ${ability.description}`);
             console.log(`      - Ability URL: ${ability.abilityUrl}`);
             console.log(`      - Hidden: ${ability.isHidden}`);
@@ -96,4 +83,5 @@ async function FilterOnID() {
     }
     
 }
+
 export{}
