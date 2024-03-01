@@ -96,6 +96,4 @@ async function FilterOnID() {
     }
     
 }
-
-console.log();
 export{}
