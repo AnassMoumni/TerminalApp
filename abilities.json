@@ -1,0 +1,142 @@
+[
+    {
+        "id": 1,
+        "name": "Overgrow",
+        "description": "Increases the power of Grass-type moves",
+        "abilityUrl": "https://pokemondb.net/ability/overgrow",
+        "isHidden": false
+    },
+    {   
+        "id": 2,
+        "name": "Chlorophyll",
+        "description": "Doubles the ability-bearer's Speed",
+        "abilityUrl": "https://pokemondb.net/ability/chlorophyll",
+        "isHidden": true
+    },
+    {
+        "id": 3,
+        "name": "Blaze",
+        "description": "Increases the power of Fire-type moves",
+        "abilityUrl": "https://pokemondb.net/ability/blaze",
+        "isHidden": false
+    },
+    {
+        "id": 4,
+        "name": "Solar Power",
+        "description": "Special Attack stat is increased",
+        "abilityUrl": "https://pokemondb.net/ability/solar-power",
+        "isHidden": true
+    },
+      {
+        "id": 5,
+        "name": "Torrent",
+        "description": "Increases the power of Water-type moves",
+        "abilityUrl": "https://pokemondb.net/ability/torrent",
+        "isHidden": false
+    },
+      {
+        "id": 6,
+        "name": "Rain Dish",
+        "description": "Heals HP in rain",
+        "abilityUrl": "https://pokemondb.net/ability/rain-dish",
+        "isHidden": true
+    },
+      {
+        "id": 7,
+        "name": "Static",
+        "description": "May cause paralysis if target uses a contact move",
+        "abilityUrl": "https://pokemondb.net/ability/static",
+        "isHidden": false
+    },
+      {
+        "id": 8,
+        "name": "Lightning Rod",
+        "description": "Draws in all Electric-type moves to boost its Special Attack stat",
+        "abilityUrl": "https://pokemondb.net/ability/lightning-rod",
+        "isHidden": true
+    },
+      {
+        "id": 9,
+        "name": "Cute Charm",
+        "description": "May cause infatuation if target uses a contact move",
+        "abilityUrl": "https://pokemondb.net/ability/cute-charm",
+        "isHidden": false
+    },
+      {
+        "id": 10,
+        "name": "Competitive",
+        "description": "Raises Special Attack by two stages when a stat is lowered",
+        "abilityUrl": "https://pokemondb.net/ability/competitive",
+        "isHidden": true
+    },
+      {
+        "id": 11,
+        "name": "Pickup",
+        "description": "The Pokémon may pick up the item an opposing Pokémon used during a battle",
+        "abilityUrl": "https://pokemondb.net/ability/pickup",
+        "isHidden": false
+    },
+      {
+        "id": 12,
+        "name": "Technician",
+        "description": "Powers up the Pokémon's weaker moves",
+        "abilityUrl": "https://pokemondb.net/ability/technician",
+        "isHidden": true
+    },
+      {
+        "id": 13,
+        "name": "Rock Head",
+        "description": "Protects the Pokémon from recoil damage",
+        "abilityUrl": "https://pokemondb.net/ability/rock-head",
+        "isHidden": false
+    },
+      {
+        "id": 14,
+        "name": "Sturdy",
+        "description": "The Pokémon is unaffected by One Hit Knock Out moves and in Generation V, the Pokémon cannot be knocked out when it has full Hit Points",
+        "abilityUrl": "https://pokemondb.net/ability/sturdy",
+        "isHidden": true
+    },
+      {
+        "id": 15,
+        "name": "Swift Swim",
+        "description": "Doubles Speed during rain",
+        "abilityUrl": "https://pokemondb.net/ability/swift-swim",
+        "isHidden": false
+    },
+      {
+        "id": 16,
+        "name": "Rattled",
+        "description": "Raises Speed one stage upon being hit by a Bug-, Ghost-, or Dark-type move",
+        "abilityUrl": "https://pokemondb.net/ability/rattled",
+        "isHidden": true
+    },
+      {
+        "id": 17,
+        "name": "Run Away",
+        "description": "Enables sure getaway from wild Pokémon",
+        "abilityUrl": "https://pokemondb.net/ability/run-away",
+        "isHidden": false
+    },
+      {
+        "id": 18,
+        "name": "Adaptability",
+        "description": "Powers up moves of the same type",
+        "abilityUrl": "https://pokemondb.net/ability/adaptability",
+        "isHidden": true
+    },
+      {
+        "id": 19,
+        "name": "Immunity",
+        "description": "Prevents the Pokémon from getting poisoned",
+        "abilityUrl": "https://pokemondb.net/ability/immunity",
+        "isHidden": false
+    },
+      {
+        "id": 20,
+        "name": "Thick Fat",
+        "description": "Halves damage from Fire- and Ice-type moves",
+        "abilityUrl": "https://pokemondb.net/ability/thick-fat",
+        "isHidden": true
+    }
+]
